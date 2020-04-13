@@ -1,5 +1,16 @@
+html {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
 body {
     background-image: url(../images/dark-background.png);
+    height: 100%;
+    margin: 0;
+}
+
+section {
+
 }
 
 header {
@@ -7,6 +18,7 @@ header {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 40px;
     font-size: 70px;
     color: #ffffff;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -18,17 +30,33 @@ h2, h3 {
     font-size: 50px;
 }
 
+footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+}
+
 
 
 .restartBox {
     margin: 20px 20px 50px 20px;
 }
 
+#gamePicture {
+    float: right;
+    margin-right: 550px;
+    border: #ffffff solid 2px;
+    height: 300px;
+    width: 300px;
+}
+
 .gameBox {
     margin: 20px;
 }
 
-#lives {
+#lives, #drywallBox {
     display: flex;
     flex-wrap: nowrap;
 }
@@ -41,11 +69,6 @@ h2, h3 {
     text-align: center;
 }
 
-#drywallBox {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
 #drywallCounter {
     margin-left: 20px;
     border: #ffffff solid 2px;
@@ -53,3 +76,16 @@ h2, h3 {
     width: 50pt;
     text-align: center;
 }
+
+.board {
+    margin: 135px 300px 0;
+}
+
+#currentWord {
+    border: solid 2px #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 250px;
+}
+
