@@ -5,6 +5,8 @@ const gameWords = [
     'whiteclaw',
 ]
 
+
+
 // finds random word in gameWords array and outputs new word every click
 function newGame() {
 
@@ -15,7 +17,10 @@ function newGame() {
     board[i] = " _ ";
     }
 
-    document.getElementById("currentWord").innerHTML = board;
+    document.getElementById("currentWord").innerHTML = board.join("");
 
+    // removed commas in array with .join:
+    // https://stackoverflow.com/questions/12835621/removing-commas-from-javascript-array
+    
 }
 
