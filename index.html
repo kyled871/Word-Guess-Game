@@ -21,7 +21,7 @@
         </div>
     
         <div class="restartBox">
-            <h2>New Game</h2>
+            <h2 id="newGame" onclick="newGame()">New Game</h2>
         </div>
 
 
@@ -42,8 +42,9 @@
     
     
         <div class="board">
-            <div id="currentWord">
-    
+            <div>
+                <h3>Current Word: </h3>
+                <h3 id="currentWord"></h3>
             </div>
         </div>
     </section>
@@ -52,6 +53,7 @@
     <footer>
         <small>&copy; &hearts; Kyle</small>
     </footer>
-    <script type="javascript/text" src="assets/javascript/game.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>

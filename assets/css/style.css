@@ -30,6 +30,10 @@ h2, h3 {
     font-size: 50px;
 }
 
+#newGame {
+/* need to cut-off from stretching to end of screen */
+}
+
 footer {
    position: absolute;
    bottom: 0;
@@ -46,7 +50,7 @@ footer {
 
 #gamePicture {
     float: right;
-    margin-right: 550px;
+    margin-right: 700px;
     border: #ffffff solid 2px;
     height: 300px;
     width: 300px;
