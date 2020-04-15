@@ -10,10 +10,10 @@ const gameWords = [
 // finds random word in gameWords array and outputs new word every click
 function newGame() {
 
-    var currentWord = gameWords[Math.floor(Math.random() * gameWords.length)].toUpperCase();
+    const currentWord = gameWords[Math.floor(Math.random() * gameWords.length)].toUpperCase();
 
-    var board = [];
-    for (var i = 0; i < currentWord.length; i++) {
+    let board = [];
+    for (let i = 0; i < currentWord.length; i++) {
     board[i] = " _ ";
     }
 
