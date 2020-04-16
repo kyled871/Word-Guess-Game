@@ -16,15 +16,18 @@ let wrongLetters = [];
 let lives = 5;
 document.getElementById("lives").innerHTML = lives;
 
+points = 0;
 let score = 0;
 document.getElementById("score").innerHTML = score;
 
 
-
+function resetGame() {
+    location.reload();
+}
 
 
 // finds random word in gameWords array and outputs new word every click
-function newGame() {
+function start() {
 
     for (let i = 0; i < currentWord.length; i++) {
     board[i] = " _ ";
@@ -53,8 +56,16 @@ function checkInput() {
             board[i] = guess;
             document.getElementById("currentWord").innerHTML = board.join(" ");
             found = true;
+            points++
             }
         }
+
+        if (points === board.length) {
+            score++;
+            console.log(score)  // cant get to work without having console.log(score)
+            document.getElementById("score").innerHTML = score;
+        }
+
         if (found) return;
 
         if (wrongLetters.indexOf(guess) < 0) {
@@ -64,7 +75,15 @@ function checkInput() {
             document.getElementById("lives").innerHTML = lives;
 
         }
+
+        if (lives == 0) {
+            alert("Better luck next time!");
+            resetGame()
+        }
     }
 }
+
+start()
 checkInput()
+
 
