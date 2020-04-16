@@ -21,22 +21,22 @@
         </div>
     
         <div class="restartBox">
-            <h2 id="newGame" onclick="newGame()">New Game</h2>
+            <button id="newGame" onclick="newGame()">New Game</button>
         </div>
 
 
     
-        <div class="gameBox" id="lives">
+        <div class="gameBox" id="livesBox">
             <h2>Lives: </h2>
             <div id="lifeCounter">
-                <h3></h3>
+                <h3 id="lives"></h3>
             </div>
         </div>
     
         <div class="gameBox" id="drywallBox">
-            <h2>Drywall: </h2>
+            <h2>Score: </h2>
             <div id="drywallCounter">
-                <h3></h3>
+                <h3 id="score"></h3>
             </div>
         </div>
     
@@ -45,6 +45,7 @@
             <div>
                 <h3>Current Word: </h3>
                 <h3 id="currentWord"></h3>
+                <h3 id="wrongLetters"></h3>
             </div>
         </div>
     </section>
