@@ -8,11 +8,11 @@ const gameWords = [
 // randomizes the words in the array
 const currentWord = gameWords[Math.floor(Math.random() * gameWords.length)].toUpperCase();
 
-
+let guess;
 let board = [];
 let wrongLetters = [];
 
-// displays curent lives and score
+// displays current lives and score
 let lives = 5;
 document.getElementById("lives").innerHTML = lives;
 
@@ -31,7 +31,7 @@ function newGame() {
     }
 
     document.getElementById("currentWord").innerHTML = board.join("");
-    console.log(currentWord);
+    
 
     // removed commas in array with .join:
     // https://stackoverflow.com/questions/12835621/removing-commas-from-javascript-array
@@ -39,11 +39,15 @@ function newGame() {
 }
 
 
+// records input from user. Puts matched letters into currentWord arrat
+// puts incorrect letters guessed into Wrong letters array
 function checkInput() {
+
     document.onkeyup = function(event) {
 
         guess = event.key.toUpperCase();
         let found = false;
+
         for (i = 0; i < currentWord.length; i++) {
             if (guess === currentWord[i]) {
             board[i] = guess;
@@ -56,6 +60,9 @@ function checkInput() {
         if (wrongLetters.indexOf(guess) < 0) {
             wrongLetters.push(guess);
             document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
+            lives--;
+            document.getElementById("lives").innerHTML = lives;
+
         }
     }
 }
