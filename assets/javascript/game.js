@@ -63,17 +63,22 @@ function checkInput() {
 
         // if the points variable = however long the word is. User gets 1 point and goes to next round.
         if (points === currentWord.length) {
-            score++;
+            
             document.getElementById("score").innerHTML = score;
             alert("Next round!")
+            board = []
+            let blanks = ""
             lives = 5;
             points = 0;
             document.getElementById("lives").innerHTML = lives;
             currentWord = gameWords[Math.floor(Math.random() * gameWords.length)].toUpperCase();
             for (let i = 0; i < currentWord.length; i++) {
+                console.log(currentWord)
                 board[i] = " _ ";
                 }
-            document.getElementById("currentWord").innerHTML = board[i];
+            blanks = board.join(" ");
+            document.getElementById("currentWord").innerHTML = blanks
+            score++;
             console.log(currentWord)
             
         }
