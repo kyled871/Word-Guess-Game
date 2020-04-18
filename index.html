@@ -19,26 +19,35 @@
         <div id="gamePicture">
             <!-- img goes here -->
         </div>
+        
+        <div id="controls">
+            <div class="restartBox">
+                <button id="newGame" onclick="resetGame()">New Game</button>
+            </div>
     
-        <div class="restartBox">
-            <button id="newGame" onclick="resetGame()">New Game</button>
+    
+        
+            <div class="gameBox" id="livesBox">
+                <h2>Lives: </h2>
+                <div id="lifeCounter">
+                    <h3 id="lives"></h3>
+                </div>
+            </div>
+        
+            <div id="pictureWrapper">
+                <div class="gameBox" id="drywallBox">
+                    <h2>Score: </h2>
+                    <div id="drywallCounter">
+                        <h3 id="score"></h3>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 
-    
-        <div class="gameBox" id="livesBox">
-            <h2>Lives: </h2>
-            <div id="lifeCounter">
-                <h3 id="lives"></h3>
-            </div>
-        </div>
-    
-        <div class="gameBox" id="drywallBox">
-            <h2>Score: </h2>
-            <div id="drywallCounter">
-                <h3 id="score"></h3>
-            </div>
-        </div>
+
+
     
     
         <div class="board">

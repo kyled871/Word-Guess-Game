@@ -48,13 +48,14 @@ footer {
 
 
 
+
 .restartBox {
     margin: 20px 20px 50px 20px;
 }
 
 #gamePicture {
     float: right;
-    margin-right: 820px;
+    margin-right: 800px;
     border: #ffffff solid 2px;
     height: 300px;
     width: 300px;
