@@ -92,12 +92,12 @@ footer {
 }
 #currentWordtitle {
     margin-top: 30px;
-    margin-left: 520px;
+    margin-left: 270px;
 }
 
 #wrongLetterstitle {
     margin-top: 20px;
-    margin-left: 520px;
+    margin-left: 270px;
 }
 
 #currentWord {
@@ -116,5 +116,15 @@ footer {
     width: 50%;
     height: 100px;
     text-align: center;
+}
+
+#startBanner {
+    position: fixed;
+    margin-left: 540px;
+    margin-right: 540px;
+    background-color: red;
+    text-align: center;
+    font-style: italic;
+    padding: 5px 20px;
 }
 

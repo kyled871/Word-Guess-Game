@@ -20,6 +20,30 @@ let score = 0;
 document.getElementById("score").innerHTML = score;
 
 
+
+// press spacebar to start game, supposed to play music
+function startGame() {
+    var themeSong = new Audio('./assets/audio/final_fight_selection.mp3');
+
+    document.body.onkeyup = function(e){
+
+        if(e.keyCode == 32){
+            start();
+            document.getElementById('startBanner').style.display = 'none';
+            window.location = loc;
+
+            // should start song
+            themeSong.play();
+            return false;
+        }
+    }
+}
+
+
+
+
+
+
 function resetGame() {
     location.reload();
 }
@@ -109,9 +133,10 @@ function checkInput() {
 
     }
 }
+
+
 console.log(currentWord)
 console.log(currentWord.length)
-
-start()
+startGame()
 checkInput()
 
