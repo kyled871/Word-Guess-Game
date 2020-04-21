@@ -12,6 +12,8 @@ let guess;
 let board = [];
 let wrongLetters = [];
 
+const ignoreChar = []
+
 // displays current lives and score
 let lives = 5;
 document.getElementById("lives").innerHTML = lives;
@@ -19,25 +21,27 @@ let points = 0;
 let score = 0;
 document.getElementById("score").innerHTML = score;
 
-
+var audioElement = document.createElement("audio");
+        audioElement.setAttribute("src", "../audio/final_fight_selection.mp3");
+audioElement.play();
 
 // press spacebar to start game, supposed to play music
-function startGame() {
-    var themeSong = new Audio('./assets/audio/final_fight_selection.mp3');
+    function startGame() {
 
-    document.body.onkeyup = function(e){
+        document.body.onkeyup = function(e){
 
-        if(e.keyCode == 32){
-            start();
-            document.getElementById('startBanner').style.display = 'none';
-            window.location = loc;
+            if(e.keyCode == 32){
 
-            // should start song
-            themeSong.play();
-            return false;
+                start();
+                checkInput();
+                document.getElementById('startBanner').style.display = 'none';
+    
+                // should start song
+                audioElement.play();
+                
+            }
         }
     }
-}
 
 
 
@@ -138,5 +142,3 @@ function checkInput() {
 console.log(currentWord)
 console.log(currentWord.length)
 startGame()
-checkInput()
-
