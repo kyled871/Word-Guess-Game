@@ -12,6 +12,11 @@ let guess;
 let board = [];
 let wrongLetters = [];
 
+let spacePressed = false
+
+
+var audio;
+
 const ignoreChar = []
 
 // displays current lives and score
@@ -21,24 +26,20 @@ let points = 0;
 let score = 0;
 document.getElementById("score").innerHTML = score;
 
-var audioElement = document.createElement("audio");
-        audioElement.setAttribute("src", "../audio/final_fight_selection.mp3");
-audioElement.play();
-
 // press spacebar to start game, supposed to play music
+
+
+
     function startGame() {
 
-        document.body.onkeyup = function(e){
-
+        document.body.onkeydown = function(e){
+            e.preventDefault();
             if(e.keyCode == 32){
-
+                spacePressed = true
                 start();
                 checkInput();
                 document.getElementById('startBanner').style.display = 'none';
     
-                // should start song
-                audioElement.play();
-                
             }
         }
     }
@@ -55,6 +56,12 @@ function resetGame() {
 
 // finds random word in gameWords array and outputs new word every click
 function start() {
+
+    let audio = document.createElement('audio');
+    audio.src = 'assets/audio/final_fight_selection.mp3'
+    audio.loop = true;
+    audio.play();
+
 
     for (let i = 0; i < currentWord.length; i++) {
     board[i] = " _ ";
@@ -85,6 +92,7 @@ function checkInput() {
             points++
             console.log(points)
             found = true;
+
             
             }
         }
@@ -94,6 +102,13 @@ function checkInput() {
             
             document.getElementById("score").innerHTML = score;
             alert("Next round!")
+
+            let audio1 = document.createElement('audio');
+            audio1.src = 'assets/audio/1up.mp3'
+            audio1.play();
+
+            console.log(audio1)
+
             board = []
             let blanks = ""
             lives = 5;
@@ -121,6 +136,10 @@ function checkInput() {
             document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
             lives--;
             document.getElementById("lives").innerHTML = lives;
+
+            let audio = document.createElement('audio');
+            audio.src = 'assets/audio/lose.mp3'
+            audio.play();
         }
 
         if (found = true) {
