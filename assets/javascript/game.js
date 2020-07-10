@@ -11,9 +11,7 @@ let currentWord = gameWords[Math.floor(Math.random() * gameWords.length)].toUppe
 let guess;
 let board = [];
 let wrongLetters = [];
-
-let spacePressed = false
-
+let spacebarPressed = false;
 
 var audio;
 
@@ -33,35 +31,38 @@ document.getElementById("score").innerHTML = score;
     function startGame() {
 
         document.body.onkeydown = function(e){
+
             e.preventDefault();
-            if(e.keyCode == 32){
-                spacePressed = true
+            if(e.keyCode == 32 && spacebarPressed === false){
+
                 start();
-                checkInput();
                 document.getElementById('startBanner').style.display = 'none';
-    
-            }
+                spacebarPressed = true;
+                
+            } 
+
+
         }
     }
-
-
-
-
-
-
-function resetGame() {
-    location.reload();
-}
-
-
-// finds random word in gameWords array and outputs new word every click
-function start() {
-
-    let audio = document.createElement('audio');
-    audio.src = 'assets/audio/final_fight_selection.mp3'
-    audio.loop = true;
-    audio.play();
-
+    
+    
+    
+    
+    
+    
+    function resetGame() {
+        location.reload();
+    }
+    
+    
+    // finds random word in gameWords array and outputs new word every click
+    function start() {
+        
+        let audio = document.createElement('audio');
+        audio.src = 'assets/audio/final_fight_selection.mp3'
+        audio.loop = true;
+        audio.play();
+        
 
     for (let i = 0; i < currentWord.length; i++) {
     board[i] = " _ ";
@@ -70,6 +71,8 @@ function start() {
     document.getElementById("currentWord").innerHTML = board.join("");
     // removed commas in array with .join:
     // https://stackoverflow.com/questions/12835621/removing-commas-from-javascript-array
+
+    checkInput();
     
 }
 
@@ -82,20 +85,32 @@ function checkInput() {
 
         // the users guess is converted into uppercase
         guess = event.key.toUpperCase();
-        let found = false;
+        guesskey = event.keyCode
+        let found = [];
 
         // the users guess is added on to the board if correct
         for (i = 0; i < currentWord.length; i++) {
-            if (guess === currentWord[i]) {
-            board[i] = guess;
-            document.getElementById("currentWord").innerHTML = board.join(" ");
-            points++
-            console.log(points)
-            found = true;
+
+
+
+            if (guesskey < 65 || guesskey > 90) {
+
+                return;
+
+            } else if (guess === currentWord[i]) {
+
+                board[i] = guess;
+                document.getElementById("currentWord").innerHTML = board.join(" ");
+                points++
+                guess.push(found);
+
+
+                
+            }
 
             
-            }
         }
+
 
         // if the points variable = however long the word is. User gets 1 point and goes to next round.
         if (points >= currentWord.length) {
@@ -128,8 +143,6 @@ function checkInput() {
             
         }
 
-        if (found) return;
-
         // if you guess a wrong letter, lives go down by 1 increment and that letter is shown
         if (wrongLetters.indexOf(guess) < 0) {
             wrongLetters.push(guess);
@@ -142,8 +155,6 @@ function checkInput() {
             audio.play();
         }
 
-        if (found = true) {
-        }
         // gameover - resets page
         if (lives == 0) {
             alert("Better luck next time!");
