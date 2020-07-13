@@ -10,12 +10,15 @@ let currentWord = gameWords[Math.floor(Math.random() * gameWords.length)].toUppe
 
 let guess;
 let board = [];
-let wrongLetters = [];
 let spacebarPressed = false;
+
+let wrongLetters = [];
+let missedArr = [];
+let found = [];
+
 
 var audio;
 
-const ignoreChar = []
 
 // displays current lives and score
 let lives = 5;
@@ -86,33 +89,55 @@ function checkInput() {
         // the users guess is converted into uppercase
         guess = event.key.toUpperCase();
         guesskey = event.keyCode
-        let found = [];
+        missedArr = [];
+        found = [];
 
         // the users guess is added on to the board if correct
         for (i = 0; i < currentWord.length; i++) {
 
 
-
-            if (guesskey < 65 || guesskey > 90) {
+            // if the guesskey is not a-z OR guess was already guessed then IGNORE --------------------
+            if (guesskey < 65 || guesskey > 90 || guess === wrongLetters[i] || guess === found[i]) {
 
                 return;
 
+                // add correct guess to the board and add 1 point for each letter guessed -----------
             } else if (guess === currentWord[i]) {
 
                 board[i] = guess;
                 document.getElementById("currentWord").innerHTML = board.join(" ");
                 points++
-                guess.push(found);
-
+                found.push(guess);
 
                 
+                
+            } else {
+
+                missedArr.push(guess);
+
             }
 
+
+            // each guess is checked and inc letters are always added to the missedArr
+            // if the missedArr returns the same number as the currentWord then that's a TRUE miss
+            if (missedArr.length >= currentWord.length) {
+
+                wrongLetters.push(guess);
+                document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
+                lives--;
+                document.getElementById("lives").innerHTML = lives;
+    
+                let audio = document.createElement('audio');
+                audio.src = 'assets/audio/lose.mp3'
+                audio.play();
+
+                missedArr = [];
+            }
             
         }
 
 
-        // if the points variable = however long the word is. User gets 1 point and goes to next round.
+        // if the points variable = however long the word is. User gets 1 SCORE point and goes to next round.
         if (points >= currentWord.length) {
             
             document.getElementById("score").innerHTML = score;
@@ -144,31 +169,15 @@ function checkInput() {
         }
 
         // if you guess a wrong letter, lives go down by 1 increment and that letter is shown
-        if (wrongLetters.indexOf(guess) < 0) {
-            wrongLetters.push(guess);
-            document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
-            lives--;
-            document.getElementById("lives").innerHTML = lives;
 
-            let audio = document.createElement('audio');
-            audio.src = 'assets/audio/lose.mp3'
-            audio.play();
-        }
 
         // gameover - resets page
         if (lives == 0) {
             alert("Better luck next time!");
             resetGame()
         }
-
-
-
-
-
     }
 }
 
 
-console.log(currentWord)
-console.log(currentWord.length)
 startGame()
