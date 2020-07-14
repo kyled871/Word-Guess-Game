@@ -23,7 +23,6 @@ var audio;
 // displays current lives and score
 let lives = 5;
 document.getElementById("lives").innerHTML = lives;
-let points = 0;
 let score = 0;
 document.getElementById("score").innerHTML = score;
 
@@ -90,29 +89,24 @@ function checkInput() {
         guess = event.key.toUpperCase();
         guesskey = event.keyCode
         missedArr = [];
-        found = [];
 
         // the users guess is added on to the board if correct
         for (i = 0; i < currentWord.length; i++) {
+            console.log(currentWord)
+            console.log(board.join(""))
 
-
-            // if the guesskey is not a-z OR guess was already guessed then IGNORE --------------------
-            if (guesskey < 65 || guesskey > 90 || guess === wrongLetters[i] || guess === found[i]) {
-
-                return;
-
-                // add correct guess to the board and add 1 point for each letter guessed -----------
-            } else if (guess === currentWord[i]) {
-
+            if (guess === currentWord[i]) {
                 board[i] = guess;
                 document.getElementById("currentWord").innerHTML = board.join(" ");
-                points++
                 found.push(guess);
 
-                
-                
+
+            } else if (guesskey < 65 || guesskey > 90 || guess === wrongLetters[i]) {
+                return null;
+                 
             } else {
 
+                // every guess will return "missed" for the other letters.
                 missedArr.push(guess);
 
             }
@@ -135,11 +129,12 @@ function checkInput() {
             }
             
         }
-
-
+        
+        
         // if the points variable = however long the word is. User gets 1 SCORE point and goes to next round.
-        if (points >= currentWord.length) {
-            
+        if (board.join("") === currentWord) {
+
+            score++;
             document.getElementById("score").innerHTML = score;
             alert("Next round!")
 
@@ -149,7 +144,8 @@ function checkInput() {
 
             console.log(audio1)
 
-            board = []
+            found = [];
+            board = [];
             let blanks = ""
             lives = 5;
             points = 0;
@@ -163,12 +159,10 @@ function checkInput() {
             document.getElementById("currentWord").innerHTML = blanks
             wrongLetters = []
             document.getElementById("wrongLetters").innerHTML = wrongLetters
-            score++;
             console.log(currentWord)
             
         }
 
-        // if you guess a wrong letter, lives go down by 1 increment and that letter is shown
 
 
         // gameover - resets page

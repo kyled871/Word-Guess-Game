@@ -1,6 +1,6 @@
 html {
-    overflow-y: hidden;
     overflow-x: hidden;
+
 }
 
 body {
@@ -8,7 +8,6 @@ body {
     height: 100%;
     margin: 0;
 }
-
 
 
 header {
@@ -20,6 +19,10 @@ header {
     font-size: 70px;
     color: #ffffff;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h1 {
+    font-size: 70px;
 }
 
 h2, h3 {
@@ -46,46 +49,13 @@ footer {
    text-align: center;
 }
 
-
-
-
-.restartBox {
-    margin: 20px 20px 50px 20px;
-}
-
 #gamePicture {
-    float: right;
-    margin-right: 800px;
-    margin-bottom: 120px;
     border: #ffffff solid 2px;
     height: 300px;
     width: 300px;
 }
 
-.gameBox {
-    margin: 20px;
-}
 
-#livesBox, #drywallBox {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-#lifeCounter {
-    margin-left: 70px;
-    border: #ffffff solid 2px;
-    height: 50px;
-    width: 50pt;
-    text-align: center;
-}
-
-#drywallCounter {
-    margin-left: 20px;
-    border: #ffffff solid 2px;
-    height: 50px;
-    width: 50pt;
-    text-align: center;
-}
 
 .board {
     margin: 135px 300px 0;
@@ -119,12 +89,6 @@ footer {
 }
 
 #startBanner {
-    position: fixed;
-    margin-left: 540px;
-    margin-right: 540px;
-    background-color: red;
-    text-align: center;
-    font-style: italic;
-    padding: 5px 20px;
+    margin-bottom: 20px;
 }
 
