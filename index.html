@@ -23,37 +23,38 @@
             <header>
                 <h1>KYLE VS DRYWALL</h1>
             </header>
-            <div id="startBanner">
+            <div id="startBanner" class="position-absolute">
                 <h3>PRESS SPACEBAR TO START</h3>
+            </div>
+            <div id="nextRoundBanner" class="position-absolute">
+                <h3>NEXT ROUND!!!</h3>
+            </div>
+            <div id="gameOverBanner" class="position-absolute">
+                <h3>GAME OVER!</h3>
             </div>
     
             <div class="row">
 
                 <div class="col-4" id="controls">
-                    <div class="restartBox">
+                    <div class="restartBox mb-5">
                         <button id="newGame" onclick="resetGame()">New Game</button>
                     </div>
             
                     <div class="gameBox" id="livesBox">
-                        <h2>Lives: <span id="lives"></span></h2>
+                        <h2>Lives: <span class="ml-4" id="lives"></span></h2>
                     </div>
-                
-                
-                    <div id="pictureWrapper">
-                        <div class="gameBox" id="drywallBox">
-                            <h2>Score: </h2>
-                            <div id="drywallCounter">
-                                <h3 id="score"></h3>
-                            </div>
-                        </div>
+
+
+                    <div class="gameBox" id="drywallBox">
+                        <h2>Score: <span class="ml-4" id="score"></span></h2>
                     </div>
 
 
                 </div>
                 
-                <div class="col-8">
+                <div class="col-6">
                     <div id="gamePicture">
-                        <!-- img goes here -->
+                        <img id='fightImg' src="./assets/images/win1.png" alt="fightImg">
                     </div>
                 </div>
 
