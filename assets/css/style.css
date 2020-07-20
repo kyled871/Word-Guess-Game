@@ -149,7 +149,9 @@ img {
     100%{opacity: .5;}
 }
 
-
+.livesChange {
+    animation: colorChange 0.3s 1;
+}
 
 @keyframes colorChange {
     from {color: white;}

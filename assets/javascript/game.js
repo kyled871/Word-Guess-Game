@@ -49,6 +49,7 @@ document.getElementById("score").innerHTML = score;
     function startGame() {
 
         document.getElementById('score').style.animation = 'none';
+        
         document.body.onkeydown = function(e){
 
             e.preventDefault();
@@ -162,13 +163,12 @@ function checkInput() {
                 document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
                 lives--;
                 document.getElementById("lives").innerHTML = lives;
-                document.getElementById('lives').style.animation = 'colorChange 0.3s';
                 document.getElementById('fightImg').setAttribute('src', 'assets/images/lose1.png')
                 loseSound.play();
                 missedArr = [];
                 
             }
-            
+
         }
         
         
@@ -178,6 +178,7 @@ function checkInput() {
             userWon = true
             score++;
             oneUpSound.play();
+            document.getElementById("score").innerHTML = score;
             document.getElementById('fightImg').setAttribute('src', 'assets/images/nextRound.png')
             document.getElementById('nextRoundBanner').style.display = 'block';
             document.getElementById('score').style.animation = 'blink 0.5s linear';
@@ -187,7 +188,6 @@ function checkInput() {
                 document.getElementById('lives').style.animation = 'none';
                 document.getElementById('nextRoundBanner').style.display = 'none';
                 document.getElementById('fightImg').setAttribute('src', 'assets/images/win1.png')
-                document.getElementById("score").innerHTML = score;
                 board = [];
                 found = [];
                 let blanks = ""
