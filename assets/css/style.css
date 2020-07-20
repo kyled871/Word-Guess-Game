@@ -23,7 +23,7 @@ header {
 }
 
 h1 {
-    font-size: 70px;
+    font-size: 60px;
 }
 
 h2, h3 {
@@ -57,16 +57,18 @@ footer {
 
 
 .board {
-    margin: 135px 300px 0;
+    margin: 0px 300px 0;
 }
 #currentWordtitle {
     margin-top: 30px;
-    margin-left: 270px;
+    margin-left: 40px;
+    font-size: 25px;
 }
 
 #wrongLetterstitle {
     margin-top: 20px;
-    margin-left: 270px;
+    margin-left: 40px;
+    font-size: 25px;
 }
 
 #currentWord {
@@ -85,6 +87,7 @@ footer {
     width: 50%;
     height: 100px;
     text-align: center;
+    margin-left: 40px;
 }
 
 #startBanner {
@@ -96,12 +99,13 @@ footer {
     padding: 20px;
     border-radius: 15px 50px;
     opacity: 90%;
+    transform: rotate(5deg) skew(5deg);
 
 }
 
 #nextRoundBanner {
-    margin-left: 360px;
-    margin-top: 310px;
+    margin-left: 850px;
+    margin-top: 110px;
     background-color: blue;
     font-style: italic;
     z-index: 1;
@@ -109,12 +113,13 @@ footer {
     border-radius: 15px 50px;
     display: none;
     opacity: 90%;
+    transform: rotate(5deg) skew(5deg);
 
 }
 
 #gameOverBanner {
-    margin-left: 390px;
-    margin-top: 310px;
+    margin-left: 850px;
+    margin-top: 110px;
     background-color: red;
     font-style: italic;
     z-index: 1;
@@ -122,6 +127,8 @@ footer {
     border-radius: 15px 50px;
     display: none;
     opacity: 90%;
+    transform: rotate(5deg) skew(5deg);
+    
 
 }
 
@@ -134,3 +141,19 @@ img {
    opacity: 70%;
    transform: translateY(2px);
 }
+
+
+@keyframes blink{
+    0%{opacity: 0;}
+    50%{opacity: .3;}
+    100%{opacity: .5;}
+}
+
+
+
+@keyframes colorChange {
+    from {color: white;}
+    to {color: red;}
+}
+
+

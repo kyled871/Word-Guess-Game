@@ -48,6 +48,7 @@ document.getElementById("score").innerHTML = score;
 
     function startGame() {
 
+        document.getElementById('score').style.animation = 'none';
         document.body.onkeydown = function(e){
 
             e.preventDefault();
@@ -57,6 +58,7 @@ document.getElementById("score").innerHTML = score;
 
                 start();
                 document.getElementById('startBanner').style.display = 'none';
+
                 spacebarPressed = true;
 
                 
@@ -84,6 +86,7 @@ document.getElementById("score").innerHTML = score;
         userLost = false;
         mainTheme.play();
         document.getElementById('fightImg').setAttribute('src', 'assets/images/win1.png')
+
         
 
     for (let i = 0; i < currentWord.length; i++) {
@@ -159,6 +162,7 @@ function checkInput() {
                 document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
                 lives--;
                 document.getElementById("lives").innerHTML = lives;
+                document.getElementById('lives').style.animation = 'colorChange 0.3s';
                 document.getElementById('fightImg').setAttribute('src', 'assets/images/lose1.png')
                 loseSound.play();
                 missedArr = [];
@@ -176,7 +180,11 @@ function checkInput() {
             oneUpSound.play();
             document.getElementById('fightImg').setAttribute('src', 'assets/images/nextRound.png')
             document.getElementById('nextRoundBanner').style.display = 'block';
+            document.getElementById('score').style.animation = 'blink 0.5s linear';
+            document.getElementById('score').style.animationIterationCount = '3';
+
             setTimeout( function() {
+                document.getElementById('lives').style.animation = 'none';
                 document.getElementById('nextRoundBanner').style.display = 'none';
                 document.getElementById('fightImg').setAttribute('src', 'assets/images/win1.png')
                 document.getElementById("score").innerHTML = score;
