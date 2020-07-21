@@ -2,7 +2,8 @@
 // words to guess in game
 const gameWords = [
     'drywall', 'monster', 'redbull', 'caffeine', 'punching', 
-    'whiteclaw', 'kyle', 'fist',
+    'whiteclaw', 'kyle', 'fist', 'energy', 'brawl', 'knuckles',
+    'desctruction', 'smashing', 'bruised'
 ]
 
 // randomizes the words in the array
