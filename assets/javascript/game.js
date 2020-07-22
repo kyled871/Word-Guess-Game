@@ -3,7 +3,7 @@
 const gameWords = [
     'drywall', 'monster', 'redbull', 'caffeine', 'punching', 
     'whiteclaw', 'kyle', 'fist', 'energy', 'brawl', 'knuckles',
-    'desctruction', 'smashing', 'bruised'
+    'smashing', 'bruised'
 ]
 
 // randomizes the words in the array
@@ -87,7 +87,7 @@ document.getElementById("score").innerHTML = score;
         userWon = false
         userLost = false;
         mainTheme.play();
-        document.getElementById('fightImg').setAttribute('src', 'assets/images/win1.png')
+        document.getElementById('fightImg').setAttribute('src', 'assets/images/static.JPG')
 
         
 
@@ -113,7 +113,7 @@ function checkInput() {
 
             setTimeout(function() {
                 if (!userWon && !userLost) {
-                    document.getElementById('fightImg').setAttribute('src', 'assets/images/win1.png')
+                    document.getElementById('fightImg').setAttribute('src', 'assets/images/static.JPG')
                 }
             }, 1000)
 
@@ -138,7 +138,7 @@ function checkInput() {
                 if (guess != found[i]) {
                     found.push(guess);
                     punchSound.play();
-                    document.getElementById('fightImg').setAttribute('src', 'assets/images/win2.png')
+                    document.getElementById('fightImg').setAttribute('src', 'assets/images/win1.JPG')
                 }
                 
                 board[i] = guess;
@@ -164,7 +164,7 @@ function checkInput() {
                 document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
                 lives--;
                 document.getElementById("lives").innerHTML = lives;
-                document.getElementById('fightImg').setAttribute('src', 'assets/images/lose1.png')
+                document.getElementById('fightImg').setAttribute('src', 'assets/images/lose1.JPG')
                 loseSound.play();
                 missedArr = [];
                 
@@ -180,7 +180,7 @@ function checkInput() {
             score++;
             oneUpSound.play();
             document.getElementById("score").innerHTML = score;
-            document.getElementById('fightImg').setAttribute('src', 'assets/images/nextRound.png')
+            document.getElementById('fightImg').setAttribute('src', 'assets/images/win2.JPG')
             document.getElementById('nextRoundBanner').style.display = 'block';
             document.getElementById('score').style.animation = 'blink 0.5s linear';
             document.getElementById('score').style.animationIterationCount = '3';
@@ -188,7 +188,7 @@ function checkInput() {
             setTimeout( function() {
                 document.getElementById('lives').style.animation = 'none';
                 document.getElementById('nextRoundBanner').style.display = 'none';
-                document.getElementById('fightImg').setAttribute('src', 'assets/images/win1.png')
+                document.getElementById('fightImg').setAttribute('src', 'assets/images/static.JPG')
                 board = [];
                 found = [];
                 let blanks = ""
@@ -216,7 +216,7 @@ function checkInput() {
             mainTheme.pause()
             gameOverSound.play()
             document.getElementById('gameOverBanner').style.display = "block";
-            document.getElementById('fightImg').setAttribute('src', 'assets/images/Loser.png')
+            document.getElementById('fightImg').setAttribute('src', 'assets/images/lose2.JPG')
 
             setTimeout( function() {
                 document.getElementById('gameOverBanner').style.display = "none";
