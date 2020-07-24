@@ -50,7 +50,8 @@ document.getElementById("score").innerHTML = score;
     function startGame() {
 
         document.getElementById('score').style.animation = 'none';
-        
+        document.getElementById('fightImg').setAttribute('src', 'assets/images/static.JPG')
+
         document.body.onkeydown = function(e){
 
             e.preventDefault();
