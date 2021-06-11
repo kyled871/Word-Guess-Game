@@ -125,13 +125,6 @@ function checkInput() {
 
         // the users guess is added on to the board if correct
         for (i = 0; i < currentWord.length; i++) {
-            console.log(currentWord)
-            console.log(guess)
-            console.log(found)
-            console.log(userLost)
-            console.log(userWon)
-    
-    
 
             if (guess === currentWord[i]) {
                 
@@ -218,6 +211,8 @@ function checkInput() {
             gameOverSound.play()
             document.getElementById('gameOverBanner').style.display = "block";
             document.getElementById('fightImg').setAttribute('src', 'assets/images/lose2.JPG')
+            console.log(currentWord)
+            document.getElementById('currentWord').innerHTML = currentWord.split('').join(" ");
 
             setTimeout( function() {
                 document.getElementById('gameOverBanner').style.display = "none";
